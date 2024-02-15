@@ -19,7 +19,6 @@ class Android:
         build_path = self.create_build_folder()
         for dpi in DPI:
             name, size = dpi
-            print(build_path)
             dpi_path = build_path + FOLDER_NAME + "-" + name + "dpi/"
 
             if not os.path.exists(dpi_path):
