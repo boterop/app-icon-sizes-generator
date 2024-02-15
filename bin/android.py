@@ -10,4 +10,4 @@ DPI = [("h", "", 72), ("m", "", 48), ("xh", "", 96), ("xxh", "", 144), ("xxxh", 
 
 class Android(Mobile):
     def __init__(self, transformer: ImageTransform | str):
-        Mobile.__init__(self, transformer, OS, DPI, IMAGE_NAME, FOLDER_NAME, DPI_NAME)
+        super().__init__(transformer, OS, DPI, IMAGE_NAME, FOLDER_NAME, DPI_NAME)

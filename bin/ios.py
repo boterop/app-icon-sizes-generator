@@ -17,4 +17,4 @@ DPI = [
 
 class IOS(Mobile):
     def __init__(self, transformer: ImageTransform | str):
-        Mobile.__init__(self, transformer, OS, DPI, IMAGE_NAME, "", "")
+        super().__init__(transformer, OS, DPI, IMAGE_NAME, "", "")
