@@ -1,3 +1,7 @@
+## Use
+Run `main.py`, write the path or drag the image.
+The images will be created in the same path of the original image into `build/` folder
+
 ## Test
 To unit test the code run `python3 -m unittest -v`
 
