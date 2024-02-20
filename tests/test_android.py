@@ -7,10 +7,11 @@ FILE_FOLDER = "tests/"
 FILE_NAME = "image"
 FILE_EXT = ".jpg"
 FILE_PATH = FILE_FOLDER+FILE_NAME+FILE_EXT
-BUILD_FOLDER = "build/"+FILE_NAME+"/"
+BUILD_FOLDER = "build/"+FILE_NAME+"/android/"
 RESULT_FOLDER = "mipmap-"
 DPI = "dpi/"
 RESULT_NAME = "ic_launcher.png"
+ROUND_RESULT_NAME = "ic_launcher_round.png"
 
 class TestAndroid(unittest.TestCase):
     
@@ -42,6 +43,14 @@ class TestAndroid(unittest.TestCase):
         build_folder = Android(FILE_PATH).create_build_folder()
         self.assertEqual(build_folder, FILE_FOLDER+BUILD_FOLDER)
         self.assertTrue(os.path.exists(FILE_FOLDER+BUILD_FOLDER))
+    
+    def test_create_round(self):
+        Android(FILE_PATH).create()
+        self.assertTrue(os.path.exists(FILE_FOLDER+BUILD_FOLDER+RESULT_FOLDER+"h"+DPI+ROUND_RESULT_NAME))
+        self.assertTrue(os.path.exists(FILE_FOLDER+BUILD_FOLDER+RESULT_FOLDER+"m"+DPI+ROUND_RESULT_NAME))
+        self.assertTrue(os.path.exists(FILE_FOLDER+BUILD_FOLDER+RESULT_FOLDER+"xh"+DPI+ROUND_RESULT_NAME))
+        self.assertTrue(os.path.exists(FILE_FOLDER+BUILD_FOLDER+RESULT_FOLDER+"xxh"+DPI+ROUND_RESULT_NAME))
+        self.assertTrue(os.path.exists(FILE_FOLDER+BUILD_FOLDER+RESULT_FOLDER+"xxxh"+DPI+ROUND_RESULT_NAME))
 
 if __name__ == '__main__':
     unittest.main()
