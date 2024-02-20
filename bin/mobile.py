@@ -3,6 +3,7 @@ import os
 
 BUILD_FOLDER = "build"
 IMAGE_EXT = ".png"
+ROUND = "_round"
 
 
 class Mobile:
@@ -35,6 +36,8 @@ class Mobile:
                 os.mkdir(dpi_path)
             self.transformer.resize(size, size)
             self.transformer.save(dpi_path + self.image_name + image_name + IMAGE_EXT)
+            self.transformer.round()
+            self.transformer.save(dpi_path + self.image_name + ROUND + image_name + IMAGE_EXT)
 
     def create_build_folder(self):
         path = self.transformer.path

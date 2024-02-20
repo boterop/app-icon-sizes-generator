@@ -10,6 +10,7 @@ FILE_PATH = FILE_FOLDER+FILE_NAME+FILE_EXT
 BUILD_FOLDER = "build/"+FILE_NAME+"/ios/"
 RESULT_FOLDER = "AppStore/"
 RESULT_NAME = "AppIconx1.png"
+ROUND_RESULT_NAME = "AppIcon_roundx1.png"
 
 class TestIOS(unittest.TestCase):
     
@@ -32,6 +33,10 @@ class TestIOS(unittest.TestCase):
         build_folder = IOS(FILE_PATH).create_build_folder()
         self.assertEqual(build_folder, FILE_FOLDER+BUILD_FOLDER)
         self.assertTrue(os.path.exists(FILE_FOLDER+BUILD_FOLDER))
+    
+    def test_create_round(self):
+        IOS(FILE_PATH).create()
+        self.assertTrue(os.path.exists(FILE_FOLDER+BUILD_FOLDER+RESULT_FOLDER+ROUND_RESULT_NAME))
 
 if __name__ == '__main__':
     unittest.main()
