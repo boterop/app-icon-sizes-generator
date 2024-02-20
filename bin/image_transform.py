@@ -1,4 +1,5 @@
-from PIL import Image
+import numpy as np
+from PIL import Image, ImageDraw
 
 
 class ImageTransform:
@@ -14,3 +15,18 @@ class ImageTransform:
 
     def save(self, path: str):
         self.new_image.save(path)
+
+    def round(self):
+        img = self.image if self.new_image == None else self.new_image
+        npImage = np.array(img)
+        height, width = img.size
+
+        alpha = Image.new("L", img.size, 0)
+        draw = ImageDraw.Draw(alpha)
+        draw.pieslice([0, 0, height, width], 0, 360, fill=255)
+
+        npAlpha = np.array(alpha)
+
+        npImage = np.dstack((npImage, npAlpha))
+
+        self.new_image = Image.fromarray(npImage)

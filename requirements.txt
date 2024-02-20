@@ -1,2 +1,3 @@
-pillow>=10.2.0
 coverage
+numpy
+pillow>=10.2.0
