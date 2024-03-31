@@ -44,7 +44,6 @@ class TestAndroid(unittest.TestCase):
         Android(FILE_FOLDER + ICON_NAME + PNG).create()
         self._check_folder_exist(ROUND_RESULT_NAME)
 
-    # TODO Rename this here and in `test_create` and `test_create_round`
     def _check_folder_exist(self, arg0):
         result_absolute_folder = FILE_FOLDER + BUILD_FOLDER + RESULT_FOLDER
         dpi = DPI + arg0
