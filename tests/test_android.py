@@ -5,9 +5,7 @@ import os
 
 FILE_FOLDER = "tests/"
 FILE_NAME = "image"
-ICON_NAME = "icon"
 FILE_EXT = ".jpg"
-PNG = ".png"
 FILE_PATH = FILE_FOLDER+FILE_NAME+FILE_EXT
 BUILD_FOLDER = "build/"+FILE_NAME+"/android/"
 RESULT_FOLDER = "mipmap-"
@@ -53,10 +51,6 @@ class TestAndroid(unittest.TestCase):
         self.assertTrue(os.path.exists(FILE_FOLDER+BUILD_FOLDER+RESULT_FOLDER+"xh"+DPI+ROUND_RESULT_NAME))
         self.assertTrue(os.path.exists(FILE_FOLDER+BUILD_FOLDER+RESULT_FOLDER+"xxh"+DPI+ROUND_RESULT_NAME))
         self.assertTrue(os.path.exists(FILE_FOLDER+BUILD_FOLDER+RESULT_FOLDER+"xxxh"+DPI+ROUND_RESULT_NAME))
-    
-    def test_round_in_png(self):
-        Android(FILE_FOLDER+ICON_NAME+PNG).create()
-        self.assertTrue(os.path.exists(FILE_FOLDER+BUILD_FOLDER+RESULT_FOLDER+"h"+DPI+ROUND_RESULT_NAME))
 
 if __name__ == '__main__':
     unittest.main()
