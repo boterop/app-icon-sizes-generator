@@ -5,8 +5,8 @@ from PIL import Image, ImageDraw
 class ImageTransform:
     def __init__(self, path: str):
         file = path.split("/")[-1]
-        self.path = "/".join(path.split("/")[0:-1])
-        self.image_name = ".".join(file.split(".")[0:-1])
+        self.path = "/".join(path.split("/")[:-1])
+        self.image_name = ".".join(file.split(".")[:-1])
         self.image_extension = file.split(".")[-1]
         self.image = Image.open(path)
 
@@ -17,7 +17,8 @@ class ImageTransform:
         self.new_image.save(path)
 
     def round(self):
-        img = self.image if self.new_image == None else self.new_image
+        img = self.image if self.new_image is None else self.new_image
+        img = img.convert("RGB") if self.image_extension != "jpg" else img
         npImage = np.array(img)
         height, width = img.size
 
