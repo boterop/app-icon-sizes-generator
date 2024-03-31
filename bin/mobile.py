@@ -42,11 +42,11 @@ class Mobile:
     def create_build_folder(self):
         path = self.transformer.path
         image_name = self.transformer.image_name
-        build_path = path + "/" + BUILD_FOLDER + "/" + image_name + "/" + self.os + "/"
+        build_path = f"{path}/{BUILD_FOLDER}/{image_name}/{self.os}/"
 
         bread = ""
         for folder in build_path.split("/"):
-            bread += folder + "/"
+            bread += f"{folder}/"
             if not os.path.exists(bread):
                 os.mkdir(bread)
         return build_path

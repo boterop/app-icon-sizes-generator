@@ -17,7 +17,7 @@ class TestImageTransform(unittest.TestCase):
     def test_resize(self):
         transform = ImageTransform(FILE_PATH)
         transform.resize(500, 500)
-        
+
         self.assertNotEqual(transform.image.size, transform.new_image.size)
         self.assertEqual((500, 500), transform.new_image.size)
 
@@ -36,7 +36,7 @@ class TestImageTransform(unittest.TestCase):
         img1 = transform.new_image
         transform.round()
         img2 = transform.new_image
-        
+
         self.assertNotEqual(img1, img2)
 
 
