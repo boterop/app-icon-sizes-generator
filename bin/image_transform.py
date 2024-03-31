@@ -18,7 +18,6 @@ class ImageTransform:
 
     def round(self):
         img = self.image if self.new_image == None else self.new_image
-        img = img.convert("RGB") if self.image_extension != "jpg" else img
         npImage = np.array(img)
         height, width = img.size
 
